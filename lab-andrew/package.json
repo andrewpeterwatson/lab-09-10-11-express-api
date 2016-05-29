@@ -1,0 +1,19 @@
+{
+  "name": "lab-andrew",
+  "version": "0.1.0",
+  "description": "Coffee companion app",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "author": "andrewpeterwatson@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0"
+  }
+}
