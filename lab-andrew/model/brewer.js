@@ -24,7 +24,6 @@ Brewer.prototype.selectBrewMethod = function() {
   var selected;
   selectedOrigin.forEach((origin) => {
     if (this.coffeeOrigin.toUpperCase() === origin) {
-      console.log('BrewMethods key: ',origin,':', brewMethods[origin]);
       selected = brewMethods[origin];
     }
   });
