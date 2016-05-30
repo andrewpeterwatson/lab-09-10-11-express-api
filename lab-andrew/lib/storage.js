@@ -2,6 +2,7 @@
 
 const debug = require('debug')('note:storage');
 const AppError = require('./app-error');
+
 exports.pool = {};
 
 exports.setItem = function(schema, item){

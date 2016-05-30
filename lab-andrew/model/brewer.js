@@ -8,9 +8,8 @@ const Brewer = module.exports = function(coffeeOrigin) {
   debug('creating brewer');
   if(!coffeeOrigin) throw AppError.error400('brewer contructor requires content');
   this.id = uuid.v1();
-  this.coffeeOrigin = coffeeOrigin;
+  this.coffeeOrigin = coffeeOrigin.toUpperCase();
   this.brewMethods = this.selectBrewMethod();
-
 };
 
 Brewer.prototype.selectBrewMethod = function() {
@@ -21,11 +20,11 @@ Brewer.prototype.selectBrewMethod = function() {
     KENYA: ['Kalita Wave']
   };
   var selectedOrigin = Object.keys(brewMethods);
-  var selected;
-  selectedOrigin.forEach((origin) => {
-    if (this.coffeeOrigin.toUpperCase() === origin) {
-      selected = brewMethods[origin];
+  var key;
+  for (var i = 0; i < selectedOrigin.length; i++){
+    key = selectedOrigin[i];
+    if (this.coffeeOrigin.toUpperCase() === key) {
+      return brewMethods[key];
     }
-  });
-  return selected;
+  }
 };
