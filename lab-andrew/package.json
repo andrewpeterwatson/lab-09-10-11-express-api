@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
+    "debug": "^2.2.0",
     "gulp-eslint": "^2.0.0",
     "gulp-mocha": "^2.2.0",
     "gulp-nodemon": "^2.0.7",
