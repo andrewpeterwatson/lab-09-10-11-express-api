@@ -21,5 +21,8 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2",
     "superagent": "^2.0.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }
