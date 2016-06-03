@@ -11,7 +11,9 @@ const jsonParser = require('body-parser').json();
 const AppError = require('../lib/app-error');
 const storage = require('../lib/storage');
 const Brewer = require('../model/brewer');
+// const newStorage = new Storage(`${__dirname}/../data`);
 
+// const response = new AppError();
 const brewRouter = module.exports = new Router();
 
 function createBrewer(reqBody) {
@@ -74,5 +76,19 @@ brewRouter.put('/:id', jsonParser, function(req, res) {
     res.status(200).json(brewer);
   }).catch(function(err) {
     res.sendError(err);
+  });
+});
+brewRouter.delete('/:id', (req, res) => {
+  storage.deleteItem('brewer', req.params.id)
+  .then((success) => {
+    res.status(200).send(success);
+  }).catch((err) => {
+    console.error(err.message);
+
+    if (AppError.isAppError(err)) {
+      res.status(err.statusCode).send(err.responseMessage);
+      return;
+    }
+    res.status(500).send('internal server error');
   });
 });
